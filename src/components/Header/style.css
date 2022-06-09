@@ -1,0 +1,14 @@
+a{
+    font-size: 18px;
+}
+.anunciar-st{
+    background-color: blueviolet;
+    border-radius: 10px;
+}
+.nav-link a{
+    color: white;
+}
+.navbar-main{
+    display: flex;
+    justify-content: space-between;
+}
