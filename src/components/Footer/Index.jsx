@@ -6,7 +6,7 @@ export default function Footer() {
         <Container>
             <Row>
                 <Col>
-                    <h6>Created with ❤️ By: José Adauto</h6>
+                    <h6>© Copyright {new Date().getFullYear()}. Todos os direitos reservados. Johh</h6>
                 </Col>
                 <Col>
                 <h6>Testing</h6>
