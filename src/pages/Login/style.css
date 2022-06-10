@@ -1,0 +1,11 @@
+.title1{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+.form-login{
+    margin-left: 300px;
+    margin-right: 300px;
+    padding: 100px;
+}

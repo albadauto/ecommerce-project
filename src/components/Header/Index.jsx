@@ -9,7 +9,7 @@ export default function Header() {
                 <Nav className="flex-row">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="#features">Anúncios</Nav.Link>
-                    <Nav.Link href="#pricing">Entrar</Nav.Link>
+                    <Nav.Link href="/login">Entrar</Nav.Link>
                     <div className='anunciar-st'>
                         <Nav.Link href="/announces" className='ann'>Anunciar</Nav.Link>
                     </div>
