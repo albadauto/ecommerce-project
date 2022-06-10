@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 import Footer from './components/Footer/Index'
 import Header from './components/Header/Index'
 import Announces from './pages/Announces/Index'

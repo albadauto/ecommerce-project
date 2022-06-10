@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
-import { AiOutlineMail } from "react-icons/ai";
+
 import "./style.css";
 
 export default function Login() {
