@@ -5,4 +5,12 @@
 
 .btn-enviar{
     background-color: blueviolet;
+    padding: 10px;
+    border-radius: 10px;
+    width: 90px;
+}
+
+.btn-enviar:hover{
+    background-color: blueviolet;
+    
 }

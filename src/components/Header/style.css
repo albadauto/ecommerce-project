@@ -9,7 +9,8 @@ a{
     color: rgba(0,0,0,.55);
 }
 
-.navbar-light .navbar-nav .nav-link .ann{
+.navbar-light .navbar-nav  .ann{
+    font-size: 17px;
     color: white;
 }
 .navbar-main{

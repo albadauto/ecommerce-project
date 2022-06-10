@@ -1,18 +1,22 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-
+import "./style.css";
 export default function Footer() {
     return (
+        <footer>
+
+
         <Container>
             <Row>
                 <Col>
                     <h6>© Copyright {new Date().getFullYear()}. Todos os direitos reservados. Johh</h6>
                 </Col>
                 <Col>
-                <h6>Testing</h6>
                 
                 </Col>
             </Row>
         </Container>
+
+        </footer>
     )
 }
