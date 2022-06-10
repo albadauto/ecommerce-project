@@ -11,7 +11,7 @@ export default function Header() {
                     <Nav.Link href="#features">Anúncios</Nav.Link>
                     <Nav.Link href="#pricing">Entrar</Nav.Link>
                     <div className='anunciar-st'>
-                        <Nav.Link href="/Anunciar">Anunciar</Nav.Link>
+                        <Nav.Link href="/announces" className='ann'>Anunciar</Nav.Link>
                     </div>
                 </Nav>
             </Container>

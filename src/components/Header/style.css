@@ -5,7 +5,11 @@ a{
     background-color: blueviolet;
     border-radius: 10px;
 }
-.nav-link a{
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.55);
+}
+
+.navbar-light .navbar-nav .nav-link .ann{
     color: white;
 }
 .navbar-main{

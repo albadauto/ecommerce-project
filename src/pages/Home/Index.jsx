@@ -2,7 +2,7 @@ import React from 'react'
 import { Col, Container, Form, Image, Row } from 'react-bootstrap'
 import Category from '../../components/Category/Index';
 import { IoIosHome } from "react-icons/io";
-import { MdComputer, MdSportsSoccer,MdDesignServices } from "react-icons/md";
+import { MdComputer, MdSportsSoccer, MdDesignServices } from "react-icons/md";
 import { GiClothes } from "react-icons/gi";
 import { FaGuitar } from "react-icons/fa";
 import './style.css';
@@ -22,22 +22,22 @@ export default function Home() {
 
           <Row>
             <Col>
-              <Category icon={ <IoIosHome />} name={"Imóveis"}/>
+              <Category icon={<IoIosHome />} name={"Imóveis"} />
             </Col>
             <Col>
-              <Category icon={ <MdComputer />} name={"Técnologia"}/>
+              <Category icon={<MdComputer />} name={"Técnologia"} />
             </Col>
             <Col>
-              <Category icon={ <MdSportsSoccer />} name={"Esporte"}/>
+              <Category icon={<MdSportsSoccer />} name={"Esporte"} />
             </Col>
             <Col>
-              <Category icon={ <MdDesignServices />} name={"Serviços"}/>
+              <Category icon={<MdDesignServices />} name={"Serviços"} />
             </Col>
             <Col>
-              <Category icon={ <GiClothes />} name={"Moda e beleza"}/>
+              <Category icon={<GiClothes />} name={"Moda e beleza"} />
             </Col>
             <Col>
-              <Category icon={ <FaGuitar />} name={"Música e hobbies"}/>
+              <Category icon={<FaGuitar />} name={"Música e hobbies"} />
             </Col>
           </Row>
         </Container>
@@ -79,6 +79,16 @@ export default function Home() {
         </Row>
 
       </Container>
+
+      <Container>
+        <Row>
+          <Col className="text-center mt-5">
+            <h2>Sobre nós</h2>
+          </Col>
+        </Row>
+
+      </Container>
+
     </>
   )
 }
