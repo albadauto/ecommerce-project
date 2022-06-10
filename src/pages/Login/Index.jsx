@@ -22,7 +22,7 @@ export default function Login() {
             <Form.Control placeholder="Senha" type="password"/>
             <Row>
                 <Col>
-                    Não tem conta ainda? <Link>Registre-se Já!</Link>
+                    Não tem conta ainda? <a href="/register">Registre-se Já!</a>
                 </Col>
             </Row>
             <br/>
