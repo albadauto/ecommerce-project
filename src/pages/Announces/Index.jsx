@@ -26,6 +26,13 @@ export default function Announces() {
           <Col>
             <Form.Select>
               <option>Selecione o tipo de anuncio</option>
+              <option value="imoveis">Imóveis</option>
+              <option value="tecnologia">Técnologia</option>
+              <option value="esporte">Esporte</option>
+              <option value="serviços">Serviços</option>
+              <option value="modaebeleza">Moda e beleza</option>
+              <option value="musicaehobbies">Música e hobbies</option>
+
             </Form.Select >
           </Col>
         </Row>

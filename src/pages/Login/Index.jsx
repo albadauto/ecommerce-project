@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { api } from '../../api';
 import { useNavigate } from 'react-router-dom';
 import "./style.css";
+import { toast } from 'react-toastify';
 
 export default function Login() {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function Login() {
                 sessionStorage.setItem("token", result.data.token);
                 navigate("/")
             }
-        }).catch(err => console.log(err));
+        }).catch(() => toast.error("Erro: Login ou senha incorretos!"));
     }
     return (
         <Form onSubmit={handleOnSubmit}>
