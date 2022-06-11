@@ -1,34 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-
+import { api } from '../../api';
+import { useNavigate } from 'react-router-dom';
 import "./style.css";
 
 export default function Login() {
-  return (
-    <Container className="text-center">
-        <Row>
-            <Col className="title1">
-                Bem vindo(a) à PLX, entre com sua conta ou Registre-se
-            </Col>
-        </Row>
-        <br />
-
-        <div className="form-login border border-dark">
-
-            
-            <Form.Control placeholder="Email"/>
-            <br/>
-            <Form.Control placeholder="Senha" type="password"/>
+    const navigate = useNavigate();
+    const [loginData, setLoginData] = useState({
+        email:"",
+        password:""
+    })
+    function handleOnSubmit(e){
+        e.preventDefault();
+        api.post("/user/login", loginData).then((result) => {
+            if(result.data.auth){
+                sessionStorage.setItem("token", result.data.token);
+                navigate("/")
+            }
+        }).catch(err => console.log(err));
+    }
+    return (
+        <Form onSubmit={handleOnSubmit}>
+        <Container className="text-center">
             <Row>
-                <Col>
-                    Não tem conta ainda? <a href="/register">Registre-se Já!</a>
+                <Col className="title1">
+                    Bem vindo(a) à PLX, entre com sua conta ou Registre-se
                 </Col>
             </Row>
-            <br/>
-            <Button className="btn-enviar"> Logar</Button>
-        </div>
+            <br />
+
+            <div className="form-login border border-dark">
 
 
-    </Container>
-  )
+                <Form.Control placeholder="Email" value={loginData.email} onChange={(e) => setLoginData({...loginData, email:e.target.value})}/>
+                <br />
+                <Form.Control placeholder="Senha" type="password" value={loginData.password} onChange={(e) => setLoginData({...loginData, password:e.target.value})}/>
+                <Row>
+                    <Col>
+                        Não tem conta ainda? <a href="/register">Registre-se Já!</a>
+                    </Col>
+                </Row>
+                <br />
+                <Button className="btn-enviar" type="submit"> Logar</Button>
+            </div>
+
+
+        </Container>
+        </Form>
+    )
 }

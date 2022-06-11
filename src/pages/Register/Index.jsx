@@ -5,6 +5,7 @@ import { api } from '../../api';
 import "./style.css";
 export default function Register() {
     const [passVerify, setPassVerify] = useState("");
+    const [contrato, setContrato] = useState(false);
     const [userData, setUserData] = useState({
         name: "",
         email: "",
@@ -19,7 +20,7 @@ export default function Register() {
 
     function handleOnSubmit(e) {
         e.preventDefault();
-        if (passVerify === userData.password){
+        if (passVerify === userData.password && contrato){
             api.post("/user/insertNewUser", userData).then((result) => {
                 toast.success("Usuário cadastrado com sucesso!");
             }).catch((err) => console.log(err));
@@ -91,6 +92,7 @@ export default function Register() {
                         type="switch"
                         id="custom-switch"
                         label="Eu aceito os termos de contrato da PLX"
+                        onChange={() => setContrato(!contrato)}
                     />
                     </Col>
                 </Row>

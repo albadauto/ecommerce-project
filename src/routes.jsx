@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Routes as Rt } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import Footer from './components/Footer/Index'
 import Header from './components/Header/Index'
@@ -13,12 +13,12 @@ export default function Routes() {
   return (
     <BrowserRouter>
       <Header />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/announces" exact component={Announces} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/register" exact component={Register} />
-        </Switch>
+        <Rt>
+          <Route path="/" exact element={<Home/>} />
+          <Route path="/announces" exact element={<Announces/>} />
+          <Route path="/login" exact element={<Login/>} />
+          <Route path="/register" exact element={<Register/>} />
+        </Rt>
       <Footer />
     </BrowserRouter>
   )
