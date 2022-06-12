@@ -25,7 +25,7 @@ export default function Login() {
         <Container className="text-center">
             <Row>
                 <Col className="title1">
-                    Bem vindo(a) à PLX, entre com sua conta ou Registre-se
+                    Bem vindo(a) à PLX, entre com sua conta ou Registre-see
                 </Col>
             </Row>
             <br />
