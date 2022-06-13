@@ -18,16 +18,21 @@ export default function Recover() {
   });
   const [idUsr, setIdUsr] = useState("");
 
-  function handleOnSubmit(e) {
+  async function handleOnSubmit(e) {
     e.preventDefault();
-    api.post("/user/findByEmail", data).then((res) => {
-      setIdUsr(res.data.result.id)
-      api.post(`/user/recover/${idUsr}`, data).then((response) => {
-        toast.success(response.data.message);
-        setVisible({...visible, form2: "block", form1: "none"});
-
-      })
-    }).catch(() => toast.error("Email inexistente"));
+    try{
+      let idUsuario = ""
+      const res = await api.post("/user/findByEmail", data)
+      idUsuario = res.data.result.id
+      setIdUsr(idUsuario);
+      const response = await api.post(`/user/recover/${idUsuario}`, data)
+      toast.success(response.data.message);
+      setVisible({...visible, form2: "block", form1: "none"});
+    }catch(err){
+      console.log(err);
+    }
+    
+      
   }
 
   function handleVerifyCode(e){
