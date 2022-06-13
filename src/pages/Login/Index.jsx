@@ -40,7 +40,10 @@ export default function Login() {
                     <Col>
                         Não tem conta ainda? <a href="/register">Registre-se Já!</a>
                     </Col>
+                    
                 </Row>
+                <br />
+                <a href="/recover">Esqueci minha senha</a>
                 <br />
                 <Button className="btn-enviar" type="submit"> Logar</Button>
             </div>

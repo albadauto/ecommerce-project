@@ -7,6 +7,7 @@ import Header from './components/Header/Index'
 import Announces from './pages/Announces/Index'
 import Home from './pages/Home/Index'
 import Login from './pages/Login/Index'
+import Recover from './pages/Recover'
 import Register from './pages/Register/Index'
 
 export default function Routes() {
@@ -18,6 +19,8 @@ export default function Routes() {
           <Route path="/announces" exact element={<Announces/>} />
           <Route path="/login" exact element={<Login/>} />
           <Route path="/register" exact element={<Register/>} />
+          <Route path="/recover" exact element={<Recover/>} />
+
         </Rt>
       <Footer />
     </BrowserRouter>
