@@ -16,6 +16,7 @@ export default function Login() {
         api.post("/user/login", loginData).then((result) => {
             if(result.data.auth){
                 sessionStorage.setItem("token", result.data.token);
+                sessionStorage.setItem("id", result.data.id);
                 navigate("/")
             }
         }).catch(() => toast.error("Erro: Login ou senha incorretos!"));
@@ -25,7 +26,7 @@ export default function Login() {
         <Container className="text-center">
             <Row>
                 <Col className="title1">
-                    Bem vindo(a) à PLX, entre com sua conta ou Registre-seee
+                    Bem vindo(a) à PLX, entre com sua conta ou Registre-se
                 </Col>
             </Row>
             <br />

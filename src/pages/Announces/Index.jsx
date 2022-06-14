@@ -1,18 +1,43 @@
-import React, { useState } from 'react'
-import { Col, Container, Row, Form, FormSelect, Button } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Col, Container, Row, Form, FormSelect, Button, FloatingLabel } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
+import uuid from "react-uuid";
 import "./style.css";
 import { BsTelephonePlusFill } from "react-icons/bs";
+import { api } from '../../api';
 export default function Announces() {
+  const navigate = useNavigate();
   const [term, setTerm] = useState(true);
-  function handleAddTerm(){
+  const [userTel, setUserTel] = useState([]);
+  function handleAddTerm() {
     setTerm(!term);
   }
+  useEffect(() => {
+    if (!sessionStorage.getItem("token")) {
+      navigate("/login");
+    }
+
+    async function handleOnStart() {
+      try {
+        const tel = await api.get(`/user/findById/${sessionStorage.getItem("id")}`);
+        setUserTel([tel.data.result.phone]);
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    handleOnStart();
+
+  }, [])
   return (
     <div>
       <Container className='border border-dark ann-main'>
         <Row>
           <Col>
-            <Form.Control placeholder='Titulo' />
+            <FloatingLabel label='Título'>
+
+              <Form.Control placeholder='Titulo' />
+            </FloatingLabel>
+
           </Col>
         </Row>
         <br />
@@ -46,13 +71,19 @@ export default function Announces() {
         </Row>
         <br />
         <Row>
-          <Col>
-            <h6>Contato</h6>
-            <b><h6><BsTelephonePlusFill color='blueviolet' />  (11) 93286 3267</h6></b>
-          </Col>
+          <h6>Contato</h6>
+          {userTel.map((val) => {
+            return (
+              <Col>
+
+                <b><h6 key={uuid()}><BsTelephonePlusFill color='blueviolet' /> {val}</h6></b>
+              </Col>
+
+            )
+          })}
         </Row>
         <br />
-        
+
         <Form.Check
           type="switch"
           id="custom-switch"
