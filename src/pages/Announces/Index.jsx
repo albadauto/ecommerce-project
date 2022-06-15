@@ -28,6 +28,11 @@ export default function Announces() {
     handleOnStart();
 
   }, [])
+
+  function testFile(event){
+    const formData = new FormData();
+    console.log(event.target.files[0]);
+  }
   return (
     <div>
       <Container className='border border-dark ann-main'>
@@ -66,7 +71,7 @@ export default function Announces() {
         <Row>
           <Col>
             <h6>Adicione uma foto</h6>
-            <Form.Control type="file" />
+            <Form.Control type="file" onChange={testFile}/>
           </Col>
         </Row>
         <br />

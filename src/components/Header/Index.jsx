@@ -10,7 +10,7 @@ export default function Header() {
                 <Nav className="flex-row">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="#features">Anúncios</Nav.Link>
-                    {sessionStorage.getItem("token") ? <Nav.Link href="/login">Minha conta</Nav.Link> : <Nav.Link href="/login">Entrar</Nav.Link> }
+                    {sessionStorage.getItem("token") ? <Nav.Link href="/MyAccount">Minha conta</Nav.Link> : <Nav.Link href="/login">Entrar</Nav.Link> }
                     
                     <div className='anunciar-st'>
                         <Nav.Link href="/announces" className='ann'>Anunciar</Nav.Link>
