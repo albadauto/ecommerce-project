@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Container, Form, Image, Row } from 'react-bootstrap'
+import { Col, Container, Form, Image, Row, Card, ListGroupItem, ListGroup } from 'react-bootstrap'
 import Category from '../../components/Category/Index';
 import { IoIosHome } from "react-icons/io";
 import { MdComputer, MdSportsSoccer, MdDesignServices } from "react-icons/md";
@@ -47,6 +47,26 @@ export default function Home() {
           <Row>
             <Col>
               <h5>Últimos Anúncios</h5>
+            </Col>
+          </Row>
+          <Row>
+            <Col className='box-announce'>
+
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="http://localhost:3333/uploads/37a264e-e4-e855-4fb4-630a1c2c6d7.png" />
+                <Card.Body>
+                  <Card.Title>Geladeira pica</Card.Title>
+                  <Card.Text>
+                    Descrição do produto
+                  </Card.Text>
+                </Card.Body>
+                <ListGroup className="list-group-flush">
+                  <ListGroupItem>Nome do vendedor</ListGroupItem>
+                  <ListGroupItem>Tipo de produto</ListGroupItem>
+                </ListGroup>
+               
+              </Card>
+
 
             </Col>
           </Row>

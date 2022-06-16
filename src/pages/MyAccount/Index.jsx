@@ -36,7 +36,7 @@ export default function MyAccount() {
                         <Row>
                             <Col xs={6}>
                                 <FloatingLabel label="Nome">
-                                    <Form.Control value={val.name} disabled />
+                                    <Form.Control value={val.name_user} disabled />
                                 </FloatingLabel>
 
                             </Col>

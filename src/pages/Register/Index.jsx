@@ -7,7 +7,7 @@ export default function Register() {
     const [passVerify, setPassVerify] = useState("");
     const [contrato, setContrato] = useState(false);
     const [userData, setUserData] = useState({
-        name: "",
+        name_user: "",
         email: "",
         password: "",
         address: "",
@@ -43,7 +43,7 @@ export default function Register() {
                 <br />
                 <Row>
                     <Col xs={4}>
-                        <Form.Control placeholder="Nome" value={userData.name} onChange={(e) => setUserData({ ...userData, name: e.target.value })} />
+                        <Form.Control placeholder="Nome" value={userData.name_user} onChange={(e) => setUserData({ ...userData, name_user: e.target.value })} />
                     </Col>
                     <Col xs={4}>
                         <Form.Control placeholder="Telefone" value={userData.phone} onChange={(e) => setUserData({ ...userData, phone: e.target.value })} />

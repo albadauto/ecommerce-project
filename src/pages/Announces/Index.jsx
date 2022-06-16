@@ -79,6 +79,7 @@ export default function Announces() {
             </Col>
           </Row>
           <br />
+          
           <Row>
             <Col>
               <Form.Control as="textarea" rows={3} placeholder="Descrição do projeto" value={announceData.description} onChange={(e) => setAnnounceData({...announceData, description:e.target.value})}/>
