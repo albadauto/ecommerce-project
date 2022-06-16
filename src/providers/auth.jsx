@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 export const HeaderContext = createContext({});
 
 export default function HeaderProvider(props) {
@@ -15,5 +15,7 @@ export default function HeaderProvider(props) {
         </HeaderContext.Provider>
     )
 }
+
+export const useAuth = () => useContext(HeaderContext); //Hook personalizado, para não precisar toda vez importar o header Context
 
 

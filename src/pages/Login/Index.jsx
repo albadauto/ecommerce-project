@@ -4,7 +4,7 @@ import { api } from '../../api';
 import { useNavigate } from 'react-router-dom';
 import "./style.css";
 import { toast } from 'react-toastify';
-import { HeaderContext } from '../../providers/auth';
+import { HeaderContext, useAuth } from '../../providers/auth';
 
 export default function Login() {
     const navigate = useNavigate();
@@ -12,7 +12,7 @@ export default function Login() {
         email:"",
         password:""
     })
-    const {setBar} = useContext(HeaderContext);
+    const {setBar} = useAuth();
     function handleOnSubmit(e){
         e.preventDefault();
         api.post("/user/login", loginData).then((result) => {

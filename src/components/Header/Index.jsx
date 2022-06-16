@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
-import { HeaderContext } from '../../providers/auth';
+import { HeaderContext, useAuth } from '../../providers/auth';
 import './style.css';
 
 
 export default function Header() {
-    const { bar, setBar } = useContext(HeaderContext);
+    const { bar, setBar } = useAuth();
     function verifyIsLogged(){
         if (!sessionStorage.getItem("token")){
             setBar({url: "/Login", title:"Entrar"})
