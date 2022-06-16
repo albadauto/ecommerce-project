@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
+import { HeaderContext } from '../../providers/auth';
 import './style.css';
+
+
 export default function Header() {
-   const [bar, setBar] = useState("");
-   useEffect(() => {
-    function isLoggedBar(){
-        if (sessionStorage.getItem("token")){
-            setBar(<Nav.Link href="/MyAccount">Minha conta</Nav.Link>);
+    const { bar, setBar } = useContext(HeaderContext);
+    function verifyIsLogged(){
+        if (!sessionStorage.getItem("token")){
+            setBar({url: "/Login", title:"Entrar"})
         }else{
-            setBar(<Nav.Link href="/login">Entrar</Nav.Link>)
+            setBar({url: "/MyAccount", title:"Minha conta"})
         }
     }
-    isLoggedBar()
-   }, [bar])
+    verifyIsLogged();
     return (
         <Navbar bg="light" variant="light">
             <Container className='nav-main'>
@@ -20,7 +21,7 @@ export default function Header() {
                 <Nav className="flex-row">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="#features">Anúncios</Nav.Link>
-                    { bar }
+                    <Nav.Link href={bar.url}>{bar.title}</Nav.Link>
                     
                     <div className='anunciar-st'>
                         <Nav.Link href="/announces" className='ann'>Anunciar</Nav.Link>

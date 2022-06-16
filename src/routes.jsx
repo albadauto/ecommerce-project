@@ -14,7 +14,7 @@ import Register from './pages/Register/Index'
 export default function Routes() {
   return (
     <BrowserRouter>
-      <Header />
+        <Header />
         <Rt>
           <Route path="/" exact element={<Home/>} />
           <Route path="/announces" exact element={<Announces/>} />

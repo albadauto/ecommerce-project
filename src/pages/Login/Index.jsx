@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { api } from '../../api';
 import { useNavigate } from 'react-router-dom';
 import "./style.css";
 import { toast } from 'react-toastify';
+import { HeaderContext } from '../../providers/auth';
 
 export default function Login() {
     const navigate = useNavigate();
@@ -11,12 +12,14 @@ export default function Login() {
         email:"",
         password:""
     })
+    const {setBar} = useContext(HeaderContext);
     function handleOnSubmit(e){
         e.preventDefault();
         api.post("/user/login", loginData).then((result) => {
             if(result.data.auth){
-                sessionStorage.setItem("token", result.data.token);
-                sessionStorage.setItem("id", result.data.id);
+                sessionStorage.setItem("token", JSON.stringify(result.data.token));
+                sessionStorage.setItem("id", JSON.stringify(result.data.id));
+                setBar({url: "/MyAccount", title:"Minha conta"})
                 navigate("/")
             }
         }).catch(() => toast.error("Erro: Login ou senha incorretos!"));
