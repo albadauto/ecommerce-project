@@ -5,6 +5,7 @@ import uuid from "react-uuid";
 import "./style.css";
 import { BsTelephonePlusFill } from "react-icons/bs";
 import { api } from '../../api';
+import { toast } from "react-toastify";
 export default function Announces() {
 
   const navigate = useNavigate();
@@ -20,9 +21,7 @@ export default function Announces() {
   function handleAddTerm() {
     setTerm(!term);
   }
-  // Refazer useeffect tudo de novo
-  // Ao entrar na pagina, fazer uma busca na api por contato
-  // BUG DO CARALHO AAAAAAAAAAAAAAAAA
+
   useEffect(() => {
     if (!token) {
       navigate("/login");
@@ -48,8 +47,20 @@ export default function Announces() {
     e.preventDefault();
     const data = new FormData();
     data.append("photo", files);
+    data.append("description", announceData.description);
+    data.append("type", announceData.type);
+    data.append("name", announceData.name);
+    data.append("id_user", sessionStorage.getItem("id"));
+    const result = await api.post("/announce", data, {
+      headers:{
+        'Authorization': `Bearer ${sessionStorage.getItem("token")}`
+      }
+    });
+    if(result.data.created){
+      toast.success("Anúncio criado com sucesso! Parabéns!");
+    }
 
-  }//Continuar a lógica de upar um arquivo depois
+  }
 
   function handleOnSelectFile(e) {
     setFiles(e.target.files[0])
@@ -62,8 +73,7 @@ export default function Announces() {
           <Row>
             <Col>
               <FloatingLabel label='Título'>
-
-                <Form.Control placeholder='Titulo' />
+                <Form.Control placeholder='Titulo' value={announceData.name} onChange={(e) => setAnnounceData({...announceData, name:e.target.value})}/>
               </FloatingLabel>
 
             </Col>
@@ -71,13 +81,13 @@ export default function Announces() {
           <br />
           <Row>
             <Col>
-              <Form.Control as="textarea" rows={3} placeholder="Descrição do projeto" />
+              <Form.Control as="textarea" rows={3} placeholder="Descrição do projeto" value={announceData.description} onChange={(e) => setAnnounceData({...announceData, description:e.target.value})}/>
             </Col>
           </Row>
           <br />
           <Row>
             <Col>
-              <Form.Select>
+              <Form.Select value={announceData.type} onChange={(e) => setAnnounceData({...announceData, type:e.target.value})}>
                 <option>Selecione o tipo de anuncio</option>
                 <option value="imoveis">Imóveis</option>
                 <option value="tecnologia">Técnologia</option>

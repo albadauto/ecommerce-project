@@ -17,7 +17,7 @@ export default function Login() {
         e.preventDefault();
         api.post("/user/login", loginData).then((result) => {
             if(result.data.auth){
-                sessionStorage.setItem("token", JSON.stringify(result.data.token));
+                sessionStorage.setItem("token", result.data.token.token);
                 sessionStorage.setItem("id", JSON.stringify(result.data.id));
                 setBar({url: "/MyAccount", title:"Minha conta"})
                 navigate("/")

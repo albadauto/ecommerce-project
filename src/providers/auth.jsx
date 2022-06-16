@@ -7,8 +7,6 @@ export default function HeaderProvider(props) {
         title: "Entrar"
     });
     
-    
-
     return (
         <HeaderContext.Provider value={{ bar, setBar }}>
             {props.children}
