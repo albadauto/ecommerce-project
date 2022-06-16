@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Row, Col, Form, FloatingLabel } from 'react-bootstrap'
+import { Container, Row, Col, Form, FloatingLabel, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../api';
 import "./style.css";
@@ -11,8 +11,13 @@ export default function MyAccount() {
             navigate("/login");
         }
     }
+    hasIdSession();
+    function handleLogout(){
+        sessionStorage.removeItem("token");
+        sessionStorage.removeItem("id");
+        navigate("/");
+    }
     useEffect(() => {
-        hasIdSession();
         api.get(`/user/findById/${sessionStorage.getItem("id")}`).then((res) => {
             setUserData([res.data.result]);
         })
@@ -97,6 +102,12 @@ export default function MyAccount() {
                                     <Form.Control value={val.complement} disabled />
                                 </FloatingLabel>
 
+                            </Col>
+                        </Row>
+                        <br />
+                        <Row>
+                            <Col className="text-center">
+                                <Button variant='danger' onClick={() => handleLogout()}>Sair</Button>
                             </Col>
                         </Row>
                     </>
