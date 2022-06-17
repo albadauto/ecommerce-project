@@ -26,3 +26,9 @@
 .box-announce{
     margin: 10px;
 }
+
+.img-card-announce{
+    height: 150px;
+    object-fit: cover;  
+
+}
