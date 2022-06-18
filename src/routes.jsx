@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes as Rt } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import Footer from './components/Footer/Index'
 import Header from './components/Header/Index'
+import AllAnnounces from './pages/AllAnnounces/Index'
 import Announces from './pages/Announces/Index'
 import Home from './pages/Home/Index'
 import Login from './pages/Login/Index'
@@ -22,6 +23,7 @@ export default function Routes() {
           <Route path="/register" exact element={<Register/>} />
           <Route path="/recover" exact element={<Recover/>} />
           <Route path="/MyAccount" exact element={<MyAccount/>} />
+          <Route path="/allannounces" exact element={<AllAnnounces/>} />
         </Rt>
       <Footer />
     </BrowserRouter>

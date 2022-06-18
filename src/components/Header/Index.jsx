@@ -20,7 +20,7 @@ export default function Header() {
                 <Navbar.Brand href="/">PLX</Navbar.Brand>
                 <Nav className="flex-row">
                     <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="#features">Anúncios</Nav.Link>
+                    <Nav.Link href="/allannounces">Anúncios</Nav.Link>
                     <Nav.Link href={bar.url}>{bar.title}</Nav.Link>
                     
                     <div className='anunciar-st'>

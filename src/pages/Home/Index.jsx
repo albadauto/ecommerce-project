@@ -65,28 +65,32 @@ export default function Home() {
           </Row>
           <Row>
             {dataToAnnounce.map((val) => {
-              return (
-                <Col className='box-announce'>
-                  <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `/${val.photo}`} className="img-card-announce" />
-                    <Card.Body>
-                      <Card.Title>{val.name}</Card.Title>
-                      <Card.Text>
-                        {val.description}
-                      </Card.Text>
-                    </Card.Body>
-                    <ListGroup className="list-group-flush">
-                      <ListGroupItem>Vendedor: {val.name_user}</ListGroupItem>
-                      <ListGroupItem>Tipo: {val.type}</ListGroupItem>
-                    </ListGroup>
+              if (!val) {
+                return (
+                  <label>Não há Registros de anúncios</label>
+                )
+              } else {
+                return (
+                  <Col className='box-announce'>
+                    <Card style={{ width: '18rem' }}>
+                      <Card.Img variant="top" src={api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `/${val.photo}`} className="img-card-announce" />
+                      <Card.Body>
+                        <Card.Text>
+                          {val.name}
+                        </Card.Text>
+                        <Card.Title>R$ {val.price}</Card.Title>
+                      </Card.Body>
+                      <ListGroup className="list-group-flush">
+                        <ListGroupItem>Vendedor: {val.name_user}</ListGroupItem>
+                        <ListGroupItem>Tipo: {val.type}</ListGroupItem>
+                      </ListGroup>
 
-                  </Card>
+                    </Card>
 
 
-                </Col>
-              )
-
-
+                  </Col>
+                )
+              }
             })}
 
           </Row>

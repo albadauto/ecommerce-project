@@ -17,6 +17,7 @@ export default function Announces() {
     name: "",
     description: "",
     type: "",
+    price: ""
   })
   function handleAddTerm() {
     setTerm(!term);
@@ -50,6 +51,7 @@ export default function Announces() {
     data.append("description", announceData.description);
     data.append("type", announceData.type);
     data.append("name", announceData.name);
+    data.append("price", announceData.price);
     data.append("id_user", sessionStorage.getItem("id"));
     const result = await api.post("/announce", data, {
       headers:{
@@ -87,7 +89,7 @@ export default function Announces() {
           </Row>
           <br />
           <Row>
-            <Col>
+            <Col xs={6}>
               <Form.Select value={announceData.type} onChange={(e) => setAnnounceData({...announceData, type:e.target.value})}>
                 <option>Selecione o tipo de anuncio</option>
                 <option value="imoveis">Imóveis</option>
@@ -98,6 +100,10 @@ export default function Announces() {
                 <option value="musicaehobbies">Música e hobbies</option>
 
               </Form.Select >
+            </Col>
+
+            <Col xs={6}>
+                <Form.Control placeholder="Preço do produto" value={announceData.price} onChange={(e) => setAnnounceData({...announceData, price:e.target.value})}/>
             </Col>
           </Row>
           <br />
