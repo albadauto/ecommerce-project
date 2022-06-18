@@ -9,7 +9,6 @@ import './style.css';
 import { api } from "../../api";
 export default function Home() {
   const [dataToAnnounce, setDataToAnnounce] = useState([]);
-
   useEffect(() => {
     api.get("/findAllAnnounces", {
       headers:
@@ -17,16 +16,18 @@ export default function Home() {
         "Authorization": `Bearer ${sessionStorage.getItem("token")}`
       }
     }).then((res) => {
-      setDataToAnnounce(res.data.result)
+      setDataToAnnounce(res.data.result.slice(0, 3));
     })
   }, [])
+
+  
 
   return (
     <>
       <div className='main'>
         <Container>
           <Row>
-            <Col className='text-center'>
+            <Col className='text-center' >
               <Form.Control type="email" className="search-st" placeholder="Digite um produto que você procura" />
             </Col>
           </Row>
@@ -92,9 +93,9 @@ export default function Home() {
                 )
               }
             })}
-
           </Row>
         </Container>
+        <br />
       </div>
 
       <Container>
