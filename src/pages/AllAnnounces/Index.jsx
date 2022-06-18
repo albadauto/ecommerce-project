@@ -35,9 +35,10 @@ export default function AllAnnounces() {
       <Row>
 
         {allAnnouncesForCategory.map((val, index) => {
+          if (selectedCategory === val.type || selectedCategory === ""){
           return (
-            <Col>
-              <Card style={{ width: '18rem', display: (val.type === selectedCategory || selectedCategory === "") ? "inline" : "none" }} className="main-card" >
+            <Col xs={3}>
+              <Card style={{ width: '18rem' }} className="main-card" >
                 <Card.Img variant="top" src={api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `/${val.photo}`} className="img-card-announce" />
                 <Card.Body>
                   <Card.Text>{val.name}</Card.Text>
@@ -52,6 +53,8 @@ export default function AllAnnounces() {
             </Col>
 
           )
+
+          }
         })}
       </Row>
 
