@@ -19,7 +19,9 @@ export default function SingleAnnounce() {
                 "Authorization": `Bearer ${sessionStorage.getItem("token")}`
             }
         }).then((res) => {
-            setSelectedAnnounce(res.data.result)
+            const resultado = res.data.result.map((val) => val)
+
+            setSelectedAnnounce(resultado[0]);
         })
     }, [])
     return (
@@ -37,10 +39,20 @@ export default function SingleAnnounce() {
                    <h5>{selectedAnnounce.description}</h5>
                 </Col>
                 
+                <Col className="contact-container text-center">
+                    <h3>Dados do vendedor</h3><br />
+                    <h4>Nome: {selectedAnnounce.name_user}</h4>
+                    <h4>Telefone: {selectedAnnounce.phone}</h4>
+                    <h4>Cidade: {selectedAnnounce.city}</h4>
+                    <h4>Bairro: {selectedAnnounce.district}</h4>
+
+                </Col>
 
             </Row>
             
-
+            <Row>
+                
+            </Row>
         </Container>
     )
 }

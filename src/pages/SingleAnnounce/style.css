@@ -6,3 +6,9 @@
 .img-announce{
     width: 300px;
 }
+
+.contact-container{
+    background-color: blueviolet;
+    border-radius: 10px;
+    color: white;
+}
