@@ -21,6 +21,8 @@ export default function Home() {
     })
   }, [])
 
+  console.log(dataToAnnounce)
+
 
 
   return (
@@ -79,7 +81,7 @@ export default function Home() {
                         </Card.Text>
                         <Card.Title>R$ {val.price}</Card.Title>
                         <div className="button-conferir text-center">
-                          <Button variant="secondary" className='btn-enviar'>Conferir</Button>
+                          <Button variant="secondary" className='btn-enviar' href={`/singleannounce/${val.id}`}>Conferir</Button>
                         </div>
                       </Card.Body>
                       <ListGroup className="list-group-flush">

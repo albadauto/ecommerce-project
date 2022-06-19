@@ -72,7 +72,7 @@ export default function Recover() {
         </FloatingLabel>
         <br />
         <FloatingLabel label="Nova senha">
-          <Form.Control type="text" placeholder='Nova senha' value={verifyCodeData.password} onChange={(e) => setVerifyCodeData({...verifyCodeData, password: e.target.value})}/>
+          <Form.Control type="password" placeholder='Nova senha' value={verifyCodeData.password} onChange={(e) => setVerifyCodeData({...verifyCodeData, password: e.target.value})}/>
         </FloatingLabel>
         <Form.Control type="hidden" value={idUsr} />
         <br />
