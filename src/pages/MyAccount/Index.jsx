@@ -162,7 +162,7 @@ export default function MyAccount() {
                                 <td>{val.type}</td>
                                 <td>{val.description}</td>
                                 <td><Button variant="danger" onClick={() => handleDeleteOnClick(val.id)}>Excluir</Button></td>
-                                <td><Button variant="primary">Visualizar</Button></td>
+                                <td><Button variant="primary" href={`/singleannounce/${val.id}`}>Visualizar</Button></td>
 
                             </tr>
                         )
