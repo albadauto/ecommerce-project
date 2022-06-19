@@ -1,25 +1,47 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Row, Col, Form, FloatingLabel, Button } from 'react-bootstrap'
+import { Container, Row, Col, Form, FloatingLabel, Button, Table } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
 import { api } from '../../api';
 import "./style.css";
 export default function MyAccount() {
-    const navigate = useNavigate();
-    const [userData, setUserData] = useState([]);
     function hasIdSession() {
         if (!sessionStorage.getItem("id")) {
             navigate("/login");
         }
     }
     hasIdSession();
-    function handleLogout(){
+    const navigate = useNavigate();
+    const [userData, setUserData] = useState([]);
+    const [allannounces, setAllAnnounces] = useState([]);
+
+    function handleLogout() {
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("id");
         navigate("/");
     }
+
+    function handleDeleteOnClick(id) {
+        if (window.confirm("Deseja realmente excluir esse anúncio?")) {
+            api.delete(`/announce/${id}`, {
+                headers: {
+                    "Authorization": `Bearer ${sessionStorage.getItem("token")}`
+                }
+            }).then(() => {
+                window.location.reload();
+            }).catch((err) => console.log(err));
+        }
+
+    }
     useEffect(() => {
+
+
         api.get(`/user/findById/${sessionStorage.getItem("id")}`).then((res) => {
             setUserData([res.data.result]);
+        })
+
+        api.get(`/allAnnouncesByUser/${sessionStorage.getItem("id")}`).then((response) => {
+            setAllAnnounces(response.data.result)
         })
     }, [])
     return (
@@ -114,6 +136,41 @@ export default function MyAccount() {
 
                 )
             })}
+
+            <br /><br />
+
+            <Row>
+                <Col className="text-center title-my-announces">
+                    Meus Anúncios
+                </Col>
+            </Row>
+            <br />
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>Título do Anúncio</th>
+                        <th>Tipo</th>
+                        <th>Descrição</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {allannounces.map((val) => {
+                        return (
+                            <tr>
+                                <td>{val.name}</td>
+                                <td>{val.type}</td>
+                                <td>{val.description}</td>
+                                <td><Button variant="danger" onClick={() => handleDeleteOnClick(val.id)}>Excluir</Button></td>
+                                <td><Button variant="primary">Visualizar</Button></td>
+
+                            </tr>
+                        )
+                    })}
+
+
+                </tbody>
+            </Table>
 
         </Container>
     )

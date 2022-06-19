@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Container, Form, Image, Row, Card, ListGroupItem, ListGroup } from 'react-bootstrap'
+import { Col, Container, Form, Image, Row, Card, ListGroupItem, ListGroup ,Button} from 'react-bootstrap'
 import Category from '../../components/Category/Index';
 import { IoIosHome } from "react-icons/io";
 import { MdComputer, MdSportsSoccer, MdDesignServices } from "react-icons/md";
@@ -7,6 +7,7 @@ import { GiClothes } from "react-icons/gi";
 import { FaGuitar } from "react-icons/fa";
 import './style.css';
 import { api } from "../../api";
+import {  } from 'bootstrap';
 export default function Home() {
   const [dataToAnnounce, setDataToAnnounce] = useState([]);
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function Home() {
     })
   }, [])
 
-  
+
 
   return (
     <>
@@ -65,12 +66,9 @@ export default function Home() {
             </Col>
           </Row>
           <Row>
-            {dataToAnnounce.map((val) => {
-              if (!val) {
-                return (
-                  <label>Não há Registros de anúncios</label>
-                )
-              } else {
+            {dataToAnnounce
+            .filter((valor) => valor !== null || valor !== "")
+            .map((val) => {
                 return (
                   <Col className='box-announce'>
                     <Card style={{ width: '18rem' }}>
@@ -80,6 +78,9 @@ export default function Home() {
                           {val.name}
                         </Card.Text>
                         <Card.Title>R$ {val.price}</Card.Title>
+                        <div className="button-conferir text-center">
+                          <Button variant="secondary" className='btn-enviar'>Conferir</Button>
+                        </div>
                       </Card.Body>
                       <ListGroup className="list-group-flush">
                         <ListGroupItem>Vendedor: {val.name_user}</ListGroupItem>
@@ -91,7 +92,7 @@ export default function Home() {
 
                   </Col>
                 )
-              }
+              
             })}
           </Row>
         </Container>

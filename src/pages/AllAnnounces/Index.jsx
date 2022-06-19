@@ -5,7 +5,6 @@ import "./style.css";
 export default function AllAnnounces() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [allAnnouncesForCategory, setAllAnnouncesForCategory] = useState([]);
-  const [display, setDisplay] = useState("block");
 
   useEffect(() => {
     api.get("/findAllAnnounces").then((res) => {
@@ -34,10 +33,12 @@ export default function AllAnnounces() {
       <br />
       <Row>
 
-        {allAnnouncesForCategory.map((val, index) => {
-          if (selectedCategory === val.type || selectedCategory === ""){
+        {allAnnouncesForCategory
+        .filter((valor) => selectedCategory === valor.type || selectedCategory === "")
+        .map((val) => {
           return (
             <Col xs={3}>
+             
               <Card style={{ width: '18rem' }} className="main-card" >
                 <Card.Img variant="top" src={api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `/${val.photo}`} className="img-card-announce" />
                 <Card.Body>
@@ -53,8 +54,7 @@ export default function AllAnnounces() {
             </Col>
 
           )
-
-          }
+          
         })}
       </Row>
 

@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { api } from '../../api';
 import { useNavigate } from 'react-router-dom';
 import "./style.css";
 import { toast } from 'react-toastify';
-import { HeaderContext, useAuth } from '../../providers/auth';
+import { useAuth } from '../../providers/auth';
 
 export default function Login() {
     const navigate = useNavigate();

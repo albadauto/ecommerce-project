@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Col, Container, Row, Form, FormSelect, Button, FloatingLabel } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Col, Container, Row, Form, Button, FloatingLabel } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 import uuid from "react-uuid";
 import "./style.css";
@@ -41,7 +41,7 @@ export default function Announces() {
     }
     handleOnStart();
 
-  },[])
+  },[token, navigate])
 
 
   async function handleOnSubmit(e) {

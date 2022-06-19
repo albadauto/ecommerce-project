@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import HeaderProvider, { HeaderContext } from './providers/auth';
+import HeaderProvider from './providers/auth';
 
 /**
  * Utilizando context API:

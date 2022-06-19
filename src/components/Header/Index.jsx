@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
-import { HeaderContext, useAuth } from '../../providers/auth';
+import { useAuth } from '../../providers/auth';
 import './style.css';
 
 
