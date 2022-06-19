@@ -9,7 +9,7 @@ import Login from './pages/Login/Index'
 import MyAccount from './pages/MyAccount/Index'
 import Recover from './pages/Recover'
 import Register from './pages/Register/Index'
-
+import SingleAnnounce from "./pages/SingleAnnounce/Index";
 export default function Routes() {
   return (
     <BrowserRouter>
@@ -22,6 +22,7 @@ export default function Routes() {
           <Route path="/recover" exact element={<Recover/>} />
           <Route path="/MyAccount" exact element={<MyAccount/>} />
           <Route path="/allannounces" exact element={<AllAnnounces/>} />
+          <Route path="/singleannounce/:id" exact element={<SingleAnnounce/>} />
         </Rt>
       <Footer />
     </BrowserRouter>
