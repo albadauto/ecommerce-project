@@ -23,6 +23,7 @@ export default function SingleAnnounce() {
     return (
         <Container>
             <Image src={api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `/${selectedAnnounce.photo}`} />
+            aaaa
         </Container>
     )
 }
