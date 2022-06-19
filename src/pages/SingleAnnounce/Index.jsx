@@ -24,11 +24,20 @@ export default function SingleAnnounce() {
     }, [])
     return (
         <Container>
-            <Row>
+            <br /><br />
+            <Row className='photo-main-container'>
                 <Col className="text-center">
-                    <Image src={api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `/${selectedAnnounce.photo}`} />
-                    asdfasfdasdfa
+                    <Image src={api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `/${selectedAnnounce.photo}`} className="img-announce"/>
                 </Col>
+
+                <Col className=''>
+                   <h4> {selectedAnnounce.name}</h4><br />
+                   <h2 style={{color: "blueviolet"}}>R$ {selectedAnnounce.price}</h2><br />
+                   <h4>Descrição:</h4><br/>
+                   <h5>{selectedAnnounce.description}</h5>
+                </Col>
+                
+
             </Row>
             
 

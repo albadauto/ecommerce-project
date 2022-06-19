@@ -47,7 +47,7 @@ export default function AllAnnounces() {
                     R$ {val.price}
                   </Card.Title>
                   <div className="button-conferir text-center">
-                    <Button variant="secondary" className='btn-enviar'>Conferir</Button>
+                    <Button variant="secondary" className='btn-enviar' href={`/singleannounce/${val.id}`}>Conferir</Button>
                   </div>
                 </Card.Body>
               </Card>
