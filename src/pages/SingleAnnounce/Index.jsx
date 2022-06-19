@@ -2,7 +2,7 @@ import React from 'react'
 import "./style.css"
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect } from 'react';
-import { Container, Image } from 'react-bootstrap';
+import { Container, Image, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
 import { api } from '../../api';
 export default function SingleAnnounce() {
@@ -14,16 +14,24 @@ export default function SingleAnnounce() {
             navigate("/Login");
         }
 
-        api.get(`/announce/${id}`, {headers:{
-            "Authorization": `Bearer ${sessionStorage.getItem("token")}`
-        }}).then((res) => {
+        api.get(`/announce/${id}`, {
+            headers: {
+                "Authorization": `Bearer ${sessionStorage.getItem("token")}`
+            }
+        }).then((res) => {
             setSelectedAnnounce(res.data.result)
         })
     }, [])
     return (
         <Container>
-            <Image src={api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `/${selectedAnnounce.photo}`} />
-            aaaa
+            <Row>
+                <Col className="text-center">
+                    <Image src={api.defaults.baseURL.substring(0, api.defaults.baseURL.length - 4) + `/${selectedAnnounce.photo}`} />
+                    asdfasfdasdfa
+                </Col>
+            </Row>
+            
+
         </Container>
     )
 }
