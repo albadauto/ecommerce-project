@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Container, Form, Image, Row, Card, ListGroupItem, ListGroup ,Button} from 'react-bootstrap'
+import { Col, Container, Form, Image, Row, Card, ListGroupItem, ListGroup, Button } from 'react-bootstrap'
 import Category from '../../components/Category/Index';
 import { IoIosHome } from "react-icons/io";
 import { MdComputer, MdSportsSoccer, MdDesignServices } from "react-icons/md";
@@ -7,7 +7,7 @@ import { GiClothes } from "react-icons/gi";
 import { FaGuitar } from "react-icons/fa";
 import './style.css';
 import { api } from "../../api";
-import {  } from 'bootstrap';
+import { } from 'bootstrap';
 export default function Home() {
   const [dataToAnnounce, setDataToAnnounce] = useState([]);
   useEffect(() => {
@@ -69,8 +69,8 @@ export default function Home() {
           </Row>
           <Row>
             {dataToAnnounce
-            .filter((valor) => valor !== null || valor !== "")
-            .map((val) => {
+              .filter((valor) => valor !== null || valor !== "")
+              .map((val) => {
                 return (
                   <Col className='box-announce'>
                     <Card style={{ width: '18rem' }}>
@@ -94,8 +94,8 @@ export default function Home() {
 
                   </Col>
                 )
-              
-            })}
+
+              })}
           </Row>
         </Container>
         <br />
@@ -132,6 +132,20 @@ export default function Home() {
         <Row>
           <Col className="text-center mt-5">
             <h2>Sobre nós</h2>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col className="text-sobre">
+            A PLX é líder no mercado de compra e venda online e a maior representante da Economia Circular no Brasil, além de ser uma das empresas de tecnologia que mais crescem por aqui. <br /> Nossa plataforma conta com cerca de 350 mil anúncios todos os dias e uma média de 2,4 milhões de vendas por mês – cerca de 55 por minuto.
+
+            Isso porque estimulamos uma cultura de consumo consciente, conectando pessoas para que elas possam comprar e vender de forma fácil e rápida. <br /> Comprador e vendedor têm total controle em suas transações e decidem juntos a melhor forma de fechar negócio. <br /> 
+            
+            Na expectativa de um mundo melhor, criamos uma comunidade na qual milhões de pessoas se conectam de maneira colaborativa. Afinal, cada pessoa que tem sucesso na sua compra ou na sua venda, acaba trazendo mais valor para sociedade em que vivem, pois acreditamos que, além de possibilitar benefícios financeiros, contribuímos para o bem-estar das pessoas e do meio ambiente. Ou seja: com a PLX todo mundo ganha! <br />
+
+            Atualmente, em um cenário desafiador, a PLX - que está há 10 anos reinventando o modelo de consumo no Brasil - representa uma alternativa para todas as pessoas que precisam repensar seus hábitos e construir uma nova forma de agir. <br />Assim, empoderamos brasileiros para que seus problemas sejam resolvidos com facilidade e segurança, e promovemos um tipo de empreendedorismo que fomenta a construção de um futuro mais sustentável. Por isso:
+
+            Para apegar, desapegar e se reinventar, PLX.
           </Col>
         </Row>
 
