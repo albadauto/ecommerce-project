@@ -7,8 +7,9 @@ import { GiClothes } from "react-icons/gi";
 import { FaGuitar } from "react-icons/fa";
 import './style.css';
 import { api } from "../../api";
-import { } from 'bootstrap';
+import { useNavigate } from "react-router-dom";
 export default function Home() {
+  const navigate = useNavigate();
   const [dataToAnnounce, setDataToAnnounce] = useState([]);
   useEffect(() => {
     api.get("/findAllAnnounces", {
@@ -19,11 +20,11 @@ export default function Home() {
     }).then((res) => {
       setDataToAnnounce(res.data.result.slice(0, 3));
     })
-  }, [])
+  }, [])  
 
-  console.log(dataToAnnounce)
-
-
+  function handleOnClickCategory(cat){
+    navigate(cat)
+  }
 
   return (
     <>
@@ -108,28 +109,48 @@ export default function Home() {
           </Col>
         </Row>
 
-        <Row>
+        <Row className='image' onClick={() => handleOnClickCategory("/allannounces")}>
           <Image src='https://i.pinimg.com/736x/ce/1b/ce/ce1bceba1d766fd87fe4ac28c5c985ea.jpg' responsive className='descubra-img' />
+          <div className="image__overlay">
+            <div className="image__title">Games</div>
+            <div className="image__description">Ache aqui, vendas relacionadas a games</div>
+
+          </div>
         </Row>
         <br />
-        <Row>
+        <Row className='image' onClick={() => handleOnClickCategory("/allannounces")}>
           <Image src='https://i0.wp.com/linkedinpro.co/wp-content/uploads/2018/08/background-image-6_table-desk.jpg?resize=1040%2C262&ssl=1' responsive className='descubra-img' />
+          <div className="image__overlay">
+            <div className="image__title">Tecnologia e periféricos</div>
+            <div className="image__description">Venda ou compre também, periféricos e computadores</div>
+
+          </div>
         </Row>
 
         <br />
 
-        <Row>
+        <Row className='image' onClick={() => handleOnClickCategory("/allannounces")}>
           <Image src='https://www.injecaodeplasticos.com.br/wp-content/uploads/2018/06/Como-anda-o-setor-de-eletrodom%C3%A9sticos-para-a-ind%C3%BAstria-do-pl%C3%A1stico.jpg' responsive className='descubra-img' />
+          <div className="image__overlay">
+            <div className="image__title">Para casa</div>
+            <div className="image__description">Encontre eletro domésticos e coisas para sua casa!</div>
+
+          </div>
         </Row>
         <br />
-        <Row>
+        <Row className='image' onClick={() => handleOnClickCategory("/allannounces")}>
           <Image src=' https://www.decorfacil.com/wp-content/uploads/2017/03/20171011fachada-casa-simples-pequena-99-750x375.jpg' responsive className='descubra-img' />
+          <div className="image__overlay">
+            <div className="image__title">Imóveis</div>
+            <div className="image__description">Aqui também, você pode achar imóveis a venda, de acordo com a localidade</div>
+
+          </div>
         </Row>
 
       </Container>
 
       <Container>
-        <Row>
+        <Row >
           <Col className="text-center mt-5">
             <h2>Sobre nós</h2>
           </Col>
